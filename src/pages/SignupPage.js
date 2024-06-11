@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Layout from "../layout/Layout";
 import HeroSection from "../components/HeroSection";
 import Button from "../components/Button";
@@ -8,11 +7,15 @@ import toast from "react-hot-toast";
 const SignupPage = () => {
 
   const submitForm = async (e) => {
+    console.log(e.target.fname.value);
+    console.log(e.target.lname.value);
     try{
-    await signup(e.target.email.value, e.target.password.value, e.target.role.value);
+    await signup(e.target.email.value, e.target.password.value, e.target.role.value, e.target.fname.value, e.target.lname.value);
     e.target.email.value = "";
     e.target.password.value = "";
     e.target.role.value = "";
+    e.target.fname.value = "";
+    e.target.lname.value = "";
     toast.success("User successfully created");
     }catch(error){
       toast.error(`${error.response.data.error}, User creation failed`);
@@ -34,6 +37,24 @@ const SignupPage = () => {
               <h1 className="text-xl sm:text-5xl text-gray-100 text-center font-bold mb-6 ">
                 Sign Up
               </h1>
+              <span className="block text-gray-100 font-bold mb-2  text-xs sm:text-lg">
+                First Name
+              </span>
+              <input
+                type="text"
+                name="fname"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-800 leading-tight focus:outline-none focus:shadow-outline"
+                required
+              />
+              <span className="block text-gray-100 font-bold mb-2  text-xs sm:text-lg">
+                Last Name
+              </span>
+              <input
+                type="text"
+                name="lname"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-slate-800 leading-tight focus:outline-none focus:shadow-outline"
+                required
+              />
               <span className="block text-gray-100 font-bold mb-2  text-xs sm:text-lg">
                 Email Address
               </span>

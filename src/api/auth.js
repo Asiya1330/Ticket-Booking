@@ -15,8 +15,9 @@ export const login = async (email, password) => {
   return result;
 };
 
-export const signup = async (email, password, role) => {
-  const reqBody = { email, password, role };
+export const signup = async (email, password, role, fname, lname) => {
+  const reqBody = { email, password, role, fname, lname };
+  console.log(reqBody,"request");
   const result = await instanceAxios().post("/api/user/signup", reqBody);
   return result;
 };
