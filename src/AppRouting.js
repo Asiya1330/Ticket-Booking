@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import DashboardPage from "./pages/DashboardPage";
 import UsersPage from "./pages/UsersPage";
+import MatchOverview from "./components/MatchOverview";
 
 const AppRouting = () => {
   
@@ -24,6 +25,7 @@ const AppRouting = () => {
         <Route path="signup" exact element={<SignupPage />}/>
         <Route path="dashboard" exact element={<DashboardPage />}/>
         <Route path="users" exact element={<UsersPage />}/>
+        <Route path="matches" exact element ={<MatchOverview/>}/>
       </Routes>
     </div>
   );
